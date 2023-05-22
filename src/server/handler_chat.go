@@ -9,13 +9,14 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/gorilla/websocket"
 	"math/rand"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
 
 const ErrorMsg = "抱歉，AI 助手开小差了，请马上联系管理员去盘它。"
@@ -53,7 +54,7 @@ func (s *Server) ChatHandle(c *gin.Context) {
 	if err != nil {
 		replyMessage(client, chatRole.HelloMsg, true)
 		// 发送项目地址
-		replyMessage(client, "本项目已开放全部源代码：https://github.com/yangjian102621/chatgpt-plus，一分钟搭建自己的 ChatGPT 应用。", false)
+		replyMessage(client, "本项目已开放全部源代码：https://github.com/Anlandme/chatgpt-plus，一分钟搭建自己的 ChatGPT 应用。", false)
 	}
 	go func() {
 		for {
